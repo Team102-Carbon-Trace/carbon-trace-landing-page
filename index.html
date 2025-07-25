@@ -23,7 +23,6 @@
       <div class="container mx-auto px-4 flex justify-between items-center">
         <a href="#" class="text-2xl font-bold text-green-600">Carbon Trace</a>
         <nav>
-          <!-- ===== BOTÓN MODIFICADO ===== -->
           <a
             href="#"
             class="open-demo-modal px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
@@ -289,7 +288,6 @@
           <br />Gestioná tu huella con
           <span class="text-green-200">Carbon Trace</span>
         </h2>
-        <!-- ===== BOTÓN MODIFICADO ===== -->
         <a
           href="#"
           class="open-demo-modal inline-block px-12 py-5 bg-white text-green-700 text-xl font-bold rounded-full hover:bg-gray-100 transform hover:scale-105 transition duration-300 shadow-xl cursor-pointer"
@@ -316,7 +314,19 @@
         <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
           Solicitar una Demo
         </h3>
-        <form id="contactForm">
+        <!-- ===== FORMULARIO MODIFICADO ===== -->
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/juanpablok-po@hotmail.com"
+          method="POST"
+        >
+          <!-- Asunto del correo que recibirás -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nueva solicitud de Demo desde Carbon Trace"
+          />
+
           <div class="mb-4">
             <label for="name" class="block text-gray-700 font-semibold mb-2"
               >Nombre Completo</label
@@ -385,19 +395,17 @@
       </div>
     </footer>
 
-    <!-- ===== SCRIPT MODIFICADO PARA LA FUNCIONALIDAD ===== -->
+    <!-- ===== SCRIPT CON FUNCIONALIDAD DE MODAL (SIN MANEJO DE FORMULARIO) ===== -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // Elementos del Modal
-        const openModalBtns = document.querySelectorAll(".open-demo-modal"); // Selecciona TODOS los botones por su clase
+        const openModalBtns = document.querySelectorAll(".open-demo-modal");
         const closeModalBtn = document.getElementById("closeModalBtn");
         const contactModal = document.getElementById("contactModal");
-        const contactForm = document.getElementById("contactForm");
-        const emailAddress = "info@carbontrace.com"; // El email de destino
 
         // Función para mostrar el modal
         const showModal = (e) => {
-          e.preventDefault(); // Previene el comportamiento del ancla (que la página salte)
+          e.preventDefault();
           contactModal.classList.remove("hidden");
         };
 
@@ -421,43 +429,6 @@
           if (e.target === contactModal) {
             hideModal();
           }
-        });
-
-        // Gestionar el envío del formulario
-        contactForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          // Recoger datos del formulario
-          const name = document.getElementById("name").value;
-          const company = document.getElementById("company").value;
-          const email = document.getElementById("email").value;
-          const message = document.getElementById("message").value;
-
-          // Crear el asunto y cuerpo del email
-          const subject = `Solicitud de Demo de Carbon Trace - ${
-            company || name
-          }`;
-          let body = `Hola,\n\nMe gustaría solicitar una demostración de Carbon Trace.\n\nMis datos son:\n`;
-          body += `-----------------------------------\n`;
-          body += `Nombre: ${name}\n`;
-          body += `Empresa: ${company || "No especificada"}\n`;
-          body += `Email: ${email}\n`;
-          if (message) {
-            body += `Mensaje: ${message}\n`;
-          }
-          body += `-----------------------------------\n\n`;
-          body += `Saludos.`;
-
-          // Crear y abrir el enlace mailto
-          window.location.href = `mailto:${emailAddress}?subject=${encodeURIComponent(
-            subject
-          )}&body=${encodeURIComponent(body)}`;
-
-          // Ocultar el modal y resetear el formulario después de un breve momento
-          setTimeout(() => {
-            hideModal();
-            contactForm.reset();
-          }, 500);
         });
       });
     </script>
