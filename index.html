@@ -55,7 +55,6 @@
           <span class="block">Medimos la huella</span>
           <span class="block">Gestionamos el futuro</span>
         </h1>
-
         <p
           class="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-center text-white opacity-90 animate-fade-in-up"
         >
@@ -311,81 +310,88 @@
         >
           ×
         </button>
-        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Solicitar una Demo
-        </h3>
-        <!-- ===== FORMULARIO MODIFICADO ===== -->
-        <form
-          id="contactForm"
-          action="https://formsubmit.co/juanpablok-po@hotmail.com"
-          method="POST"
-        >
-          <!-- Asunto del correo que recibirás -->
-          <input
-            type="hidden"
-            name="_subject"
-            value="Nueva solicitud de Demo desde Carbon Trace"
-          />
 
-          <div class="mb-4">
-            <label for="name" class="block text-gray-700 font-semibold mb-2"
-              >Nombre Completo</label
-            >
+        <!-- ===== CONTENEDOR DEL FORMULARIO (SE OCULTARÁ TRAS EL ENVÍO) ===== -->
+        <div id="formContainer">
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+            Solicitar una Demo
+          </h3>
+          <form
+            id="contactForm"
+            action="https://formsubmit.co/carbontrace0@gmail.com"
+            method="POST"
+          >
+            <!-- Campos ocultos de FormSubmit -->
             <input
-              type="text"
-              id="name"
-              name="name"
-              class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-              required
+              type="hidden"
+              name="_subject"
+              value="Nueva solicitud de Demo desde Carbon Trace"
             />
-          </div>
-          <div class="mb-4">
-            <label for="company" class="block text-gray-700 font-semibold mb-2"
-              >Empresa</label
-            >
-            <input
-              type="text"
-              id="company"
-              name="company"
-              class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-          </div>
-          <div class="mb-4">
-            <label for="email" class="block text-gray-700 font-semibold mb-2"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-              required
-            />
-          </div>
-          <div class="mb-6">
-            <label for="message" class="block text-gray-700 font-semibold mb-2"
-              >Mensaje (opcional)</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="Contanos un poco sobre tu empresa o tus necesidades..."
-            ></textarea>
-          </div>
-          <div class="text-center">
-            <button
-              type="submit"
-              class="w-full px-8 py-3 bg-green-600 text-white text-lg font-bold rounded-full hover:bg-green-700 transition duration-300"
-            >
-              Enviar Solicitud
-            </button>
-          </div>
-        </form>
-      </div>
+            <input type="hidden" name="_captcha" value="false" />
 
-            <!-- ===== MENSAJE DE ÉXITO (INICIALMENTE OCULTO) ===== -->
+            <!-- Campos del formulario -->
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700 font-semibold mb-2"
+                >Nombre Completo</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="company"
+                class="block text-gray-700 font-semibold mb-2"
+                >Empresa</label
+              >
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-semibold mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="message"
+                class="block text-gray-700 font-semibold mb-2"
+                >Mensaje (opcional)</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="w-full px-8 py-3 bg-green-600 text-white text-lg font-bold rounded-full hover:bg-green-700 transition duration-300"
+              >
+                Enviar Solicitud
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ===== MENSAJE DE ÉXITO (INICIALMENTE OCULTO) ===== -->
         <div id="successMessage" class="hidden text-center py-8">
           <svg
             class="w-16 h-16 mx-auto mb-4 text-green-500"
@@ -411,11 +417,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-300 py-12" id="contact-info">
-      <div
-        class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400"
-      >
-        © 2025 Carbon Trace. Todos los derechos reservados.
-      </div>
+      <!-- ... tu código del footer va aquí ... -->
     </footer>
 
     <!-- ===== SCRIPT ACTUALIZADO CON MANEJO DE ENVÍO Y CONFIRMACIÓN ===== -->
@@ -484,7 +486,23 @@
                 }, 3000); // 3000 ms = 3 segundos
               } else {
                 // Error en el envío
-                throw new Error("Error en el envío del formulario.");
+                response
+                  .json()
+                  .then((data) => {
+                    if (Object.hasOwn(data, "errors")) {
+                      alert(
+                        data["errors"]
+                          .map((error) => error["message"])
+                          .join(", ")
+                      );
+                    } else {
+                      throw new Error("Error en el envío del formulario.");
+                    }
+                  })
+                  .catch(() => {
+                    // Si la respuesta no es JSON o hay otro error
+                    throw new Error("Error en el envío del formulario.");
+                  });
               }
             })
             .catch((error) => {
